@@ -16,3 +16,6 @@
   - :x: set the algorithm
   - :x: set the animation speed
   - :x: randomize numbers again
+
+## Explanation:
+> You need the [SFML](https://www.sfml-dev.org/) library to compile the code. *Recommended version > 2.5*
