@@ -1,7 +1,8 @@
 #include "SortingSystem.hpp"
 #include <random>
 #include <iostream>
-
+#include <chrono>
+#include <thread>
 
 void foxcodez::SortingSystem::generateNumbers(int arraySize)
 {
@@ -36,23 +37,39 @@ std::vector<int>& foxcodez::SortingSystem::getNumbersArray(Algorithm arrayType)
 }
 
 
-void foxcodez::SortingSystem::bubbleSort()
+bool foxcodez::SortingSystem::bubbleSort(long long time)
 {
     auto arraySize = m_numbersBubble.size();
-    std::cout << "Array size: " << arraySize << std::endl;
+    static int i = 0;
+    static int j = 0;
 
-    for (int i = 0; i < arraySize; i++)
+    std::this_thread::sleep_for(std::chrono::milliseconds(time));
+
+    if (i < arraySize)
     {
         // arraySize-1 because we can't swap last element, there is no next element to compare,
         // It can be out of index, if we could try to do it.
-        for(int j = 0; j < arraySize-1; j++)
+        if(j < arraySize-1)
         {
             if(m_numbersBubble[j] > m_numbersBubble[j + 1])
             {
                 std::swap(m_numbersBubble[j], m_numbersBubble[j + 1]);
             }
+            j++;
+            return true;
         }
+        i++;
+        j = 0;
+        return true;
+
     }
+    if (i == arraySize)
+    {
+        i = 0;
+        j = 0;
+        return false;
+    }
+    return true;
 }
 
 
@@ -95,6 +112,6 @@ void foxcodez::SortingSystem::sort(Algorithm algorithm)
         case Algorithm::None:   // Do nothing.
             break;
         default:
-            bubbleSort();
+            bubbleSort(100);
     }
 }

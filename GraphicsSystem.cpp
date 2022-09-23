@@ -5,7 +5,7 @@ void foxcodez::GraphicsSystem::makeShapes(std::vector<int>* numbersArray)
 {
     m_shapes.clear();
     sf::Vector2f histogramScale(1.0f, 10.0f);
-    sf::Vector2f histogramPosition(50.0f, 300.0f);
+    sf::Vector2f histogramPosition(50.0f, 600.0f);
     sf::Vector2f histogramSize(500.0f, 500.0f);
     float barOffset = 10.0f;
 
@@ -37,5 +37,5 @@ void foxcodez::GraphicsSystem::drawHistogram()
     {
         (*m_window).draw(shape);
     }
-    (*m_window).display();
+   ( *m_window).display();
 }

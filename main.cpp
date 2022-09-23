@@ -19,16 +19,32 @@ int main(int argc, char* argv[])
 
     data.generateNumbers(20);
 
-
     gui.makeShapes(&data.getNumbersArray(Algorithm::None));
 
+    bool runAlgorithm = false;
     while (window.isOpen())
     {
         sf::Event event{};
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
+            {
                 window.close();
+            }
+
+            if (event.type == sf::Event::KeyPressed)
+            {
+                if (event.key.code == sf::Keyboard::Space)
+                {
+                    runAlgorithm = true;
+                }
+            }
+        }
+
+        if(runAlgorithm)
+        {
+            data.bubbleSort(20);
+            gui.makeShapes(&data.getNumbersArray(Algorithm::BubbleSort));
         }
         gui.drawHistogram();
     }

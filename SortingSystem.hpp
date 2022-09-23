@@ -22,8 +22,8 @@ namespace foxcodez
         std::vector<int> m_numbersGlobal {};
         std::vector<int> m_numbersBubble {};
 
-    private:
-        void bubbleSort();
+    public:
+        bool bubbleSort(long long time = 100);
 
     public:
         void generateNumbers(int arraySize);
