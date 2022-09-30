@@ -18,4 +18,4 @@
   - :x: randomize numbers again
 
 ## Explanation:
-> You need the [SFML](https://www.sfml-dev.org/) library to compile the code. *Recommended version > 2.5*
+> You need the [raylib](https://www.raylib.com) library to compile the code. *Version used: 4.2.0.1*
